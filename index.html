@@ -30,4 +30,12 @@ return '<div class="card"><div class="hd"><div class="rk">'+(i+1)+'</div><div><d
 '<div class="vr">'+d.vids.map(v=>'<div class="vi"><div class="vl">'+(v.vid&&v.v?'조회 '+nf(v.v)+' · ':'')+'좋아요 '+nf(v.l)+' · 댓글 '+nf(v.c)+'</div><iframe loading="lazy" src="https://www.instagram.com/p/'+v.sc+'/embed/" allowfullscreen scrolling="no"></iframe></div>').join('')+'</div></div>'}).join('');}
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>render(b.dataset.k));render('combo');
 document.querySelectorAll('#t th').forEach((th,i)=>th.onclick=()=>{const tb=document.querySelector('#t tbody');const rs=[...tb.rows];const d=th.dataset.d=th.dataset.d==='1'?'0':'1';rs.sort((a,b)=>{const x=a.cells[i].dataset.v,y=b.cells[i].dataset.v;const r=(x!=null&&y!=null)?(+x)-(+y):a.cells[i].innerText.localeCompare(b.cells[i].innerText);return d==='1'?-r:r});rs.forEach(r=>tb.appendChild(r))});
+</script><script>
+(function(){
+var SITE='https://ohpinion14-jpg.github.io/mukfluencer-report/';
+var inFrame=false;try{inFrame=window.top!==window.self}catch(e){inFrame=true}
+if(inFrame){var b=document.createElement('a');b.href=SITE;b.target='_blank';b.rel='noopener';b.textContent='여기선 인스타가 안 열려요. 눌러서 새 탭으로 열기 ↗';b.style.cssText='display:block;position:sticky;top:0;z-index:99;background:#191f28;color:#fff;text-align:center;padding:14px;font-weight:700;font-size:15px;text-decoration:none';document.body.prepend(b);}
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="instagram.com"]');if(!a)return;e.preventDefault();var u=a.href;var w=null;try{w=window.open(u,'_blank');if(w)w.opener=null}catch(x){}
+if(!w){try{window.top.location.href=u;return}catch(x){} try{navigator.clipboard.writeText(u)}catch(x){} alert('이 화면에서는 인스타가 막혀 있어요. 주소를 복사했어요:\n'+u+'\n\n크롬 주소창에 붙여넣어 주세요.');}},true);
+})();
 </script></body></html>
